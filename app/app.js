@@ -4,11 +4,10 @@
 angular.module('myCRUD', [
   'ngRoute',
   'myCRUD.view1',
-  'myCRUD.view2',
   'myCRUD.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view2'});
+  $routeProvider.otherwise({redirectTo: '/welcome'});
 }]);

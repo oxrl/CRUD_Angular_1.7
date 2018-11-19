@@ -1,25 +1,26 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.contenedor{
+  text-align: center;
 }
 
-.menu:before {
-  content: "[";
+.contenedor-registros{
+  display :inline-block;
+  margin: 20px;
+  text-align: center;
 }
-
-.menu:after {
-  content: "]";
+.formRegistro{
+  text-align: left;
 }
-
-.menu > li {
-  display: inline;
+.listadoPersonas{
+  text-align: left;
 }
-
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+table {
+  padding: 0;
+  background-color: #ffff00;
+}
+th {
+  width : 200px;
+  text-align:center;
+}
+tbody tr td {
+  text-align: center;
 }
