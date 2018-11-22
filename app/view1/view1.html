@@ -1,55 +1,71 @@
-<div class="contenedor">
+<div class="contenedor" ng-controller="View1Ctrl">
     <div class="contenedor-registros">
         <div class="row">
             <div class="col-md-4">
-                <div class="col-md-12"><h3>Registro de Personas</h3></div>
+                <div class="col-md-12"><h3>Registro de Estudiantes</h3></div>
                 <div class="col-md-12 formRegistro">
                     <form id="form">
-                            <div class="form-group">
-                                <label for="txtNombre">Nombres</label>
-                                <input type="text" id="txtNombre" class="form-control" placeholder="Ingrese su nombre" />
-                            </div>
                         <div class="form-group">
-                            <label for="txtApellidos">
-                                Apellidos
-                            </label>
-                            <input type="text" class="form-control" id="txtApellidos" placeholder="Apellidos">
+                            <label for="txtNombre">Cedula</label>
+                            <input type="text" id="txtCedula" class="form-control" placeholder="Ingrese su cédula" ng-model="estudiante.cedula" />
                         </div>
                         <div class="form-group">
-                            <label for="txtEdad">
-                                Edad
-                            </label>
-                            <input type="number" class="form-control" id="txtEdad" placeholder="Edad">
+                            <label for="txtNombre">Nombres</label>
+                            <input type="text" id="txtNombre" class="form-control" placeholder="Ingrese sus nombres" ng-model="estudiante.nombres" />
                         </div>
-                        <button type="button" id="btnAdd" class="btn btn-primary">Agregar</button>
+                        <div class="form-group">
+                            <label for="txtApellidoPaterno">Apellido Paterno</label>
+                            <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido Paterno" ng-model="estudiante.apellidop">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtApellidoMaterno">Apellido Materno</label>
+                            <input type="text" class="form-control"  id="txtApellidoMaterno" placeholder="Apellido Materno" ng-model="estudiante.apellidom">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtanolectivo">Año Lectivo</label>
+                            <input type="text" id="txtanolectivo" class="form-control" placeholder="Año Lectivo" ng-model="estudiante.anolectivo" />
+                        </div>
+                        <input type="button" value="Agregar" id="btnAdd" class="btn btn-primary" ng-click="insertar()"/>
 
                     </form>
                 </div>
             </div>
             <div class="col-md-8">
-                   <div class="col-md-12"><h3>Registro de Personas</h3></div>
+                   <div class="col-md-12"><h3>Listado de Estudiantes</h3></div>
                     <div class="col-md-12 listadoPersonas">
                             <table>
                                 <thead>
                                     <th>
-                                        Código
+                                        Cédula
                                     </th>
                                     <th>
                                         Nombres
                                     </th>
                                     <th>
-                                        Apellidos
+                                        Apellido Paterno
                                     </th>
                                     <th>
-                                        Edad
+                                        Apellido Materno
+                                    </th>
+                                    <th>
+                                        Paralelo
+                                    </th>
+                                    <th>
+                                        Año Electivo
                                     </th>
                                     <th>
                                         Acciones
                                     </th>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                <tr ng-repeat="c in estudiantes">
+                                    <td>{{ c.cedula }}</td>
+                                    <td>{{ c.nombres }}</td>
+                                    <td>{{ c.apellidop }}</td>
+                                    <td>{{ c.apellidom }}</td>
+                                    <td>{{ c.paralelo }}</td>
+                                    <td>{{ c.anolectivo }}</td>
+                                    <td></td>
                                 </tr>
                                 </tbody>
 

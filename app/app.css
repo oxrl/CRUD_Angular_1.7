@@ -14,6 +14,7 @@
   text-align: left;
 }
 table {
+  border: 2px solid;
   padding: 0;
   background-color: #ffff00;
 }
