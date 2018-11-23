@@ -58,14 +58,17 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="c in estudiantes">
+                                <tr ng-repeat="c in estudiantes" ng-if="c.estado == 1">
                                     <td>{{ c.cedula }}</td>
                                     <td>{{ c.nombres }}</td>
                                     <td>{{ c.apellidop }}</td>
                                     <td>{{ c.apellidom }}</td>
                                     <td>{{ c.paralelo }}</td>
                                     <td>{{ c.anolectivo }}</td>
-                                    <td></td>
+                                    <td>
+                                        <a class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a ng-click="eliminar(c.cedula)" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                                    </td>
                                 </tr>
                                 </tbody>
 

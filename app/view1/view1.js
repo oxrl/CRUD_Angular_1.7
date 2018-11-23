@@ -22,12 +22,15 @@ angular.module('myCRUD.view1', ['ngRoute'])
    }
 
    $scope.insertar =  function(){
-
        $http.post('http://localhost:3800/api/infoestudiantes', $scope.estudiante).then(function( d ){
                 getInfo();
            });
    }
-
+    $scope.eliminar =  function(cedula){
+        $http.delete('http://localhost:3800/api/infoestudiantes/'+cedula).then(function( d ){
+            getInfo();
+        });
+    }
 
 
 }]);
