@@ -19,16 +19,21 @@ angular.module('myCRUD.view1', ['ngRoute'])
                $scope.estudiantes =  data['data'][0].clientes[0].infoPersonas;
                $scope.guardar = true;
                $scope.update = false;
+               $scope.disabledCed = false;
+               $scope.cancelar = false;
            });
    }
    $scope.editEstudiante = function(estudiante){
        $scope.estudiante = estudiante;
        $scope.guardar = false;
        $scope.update = true;
+       $scope.disabledCed = true;
+       $scope.cancelar = true;
    }
 
    $scope.insertarEst =  function(){
        $http.post('http://localhost:3800/api/infoestudiantes', $scope.estudiante).then(function( d ){
+                $scope.estudiante = {};
                 getInfo();
            });
    }
@@ -38,8 +43,17 @@ angular.module('myCRUD.view1', ['ngRoute'])
         });
     }
     $scope.updateEst =  function(cedula){
+
         $http.put('http://localhost:3800/api/infoestudiantes/'+cedula,$scope.estudiante).then(function( d ){
+            $scope.estudiante = {};
             getInfo();
         });
+    }
+    $scope.CancelarEst = function(){
+        $scope.estudiante = {};
+        $scope.guardar = true;
+        $scope.cancelar = false;
+        $scope.update = false;
+        $scope.disabledCed = false;
     }
 }]);

@@ -7,7 +7,7 @@
                     <form id="form">
                         <div class="form-group">
                             <label for="txtNombre">Cedula</label>
-                            <input type="text" id="txtCedula" class="form-control" placeholder="Ingrese su cédula" ng-model="estudiante.cedula" />
+                            <input type="text" id="txtCedula" class="form-control" placeholder="Ingrese su cédula" ng-model="estudiante.cedula" ng-disabled="disabledCed" />
                         </div>
                         <div class="form-group">
                             <label for="txtNombre">Nombres</label>
@@ -27,6 +27,7 @@
                         </div>
                         <input type="button" value="Agregar" id="btnAdd" class="btn btn-primary" ng-click="insertarEst()" ng-show="guardar"/>
                         <input type="button" value="Actualizar" id="btnEdit" class="btn btn-success" ng-click="updateEst(estudiante.cedula)" ng-show="update" />
+                        <input type="button" value="Cancelar" id="btnCancelar" class="btn btn-danger" ng-click="CancelarEst()" ng-show="cancelar" />
                     </form>
                 </div>
             </div>
@@ -48,9 +49,6 @@
                                         Apellido Materno
                                     </th>
                                     <th>
-                                        Paralelo
-                                    </th>
-                                    <th>
                                         Año Electivo
                                     </th>
                                     <th>
@@ -63,7 +61,6 @@
                                     <td>{{ c.nombres }}</td>
                                     <td>{{ c.apellidop }}</td>
                                     <td>{{ c.apellidom }}</td>
-                                    <td>{{ c.paralelo }}</td>
                                     <td>{{ c.anolectivo }}</td>
                                     <td>
                                         <a ng-click="editEstudiante(c)" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
