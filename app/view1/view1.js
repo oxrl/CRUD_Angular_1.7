@@ -17,11 +17,17 @@ angular.module('myCRUD.view1', ['ngRoute'])
        $http.get('http://localhost:3800/api/infoestudiantes/'+ 1 )
            .then(function( data ){
                $scope.estudiantes =  data['data'][0].clientes[0].infoPersonas;
-
+               $scope.guardar = true;
+               $scope.update = false;
            });
    }
+   $scope.editEstudiante = function(estudiante){
+       $scope.estudiante = estudiante;
+       $scope.guardar = false;
+       $scope.update = true;
+   }
 
-   $scope.insertar =  function(){
+   $scope.insertarEst =  function(){
        $http.post('http://localhost:3800/api/infoestudiantes', $scope.estudiante).then(function( d ){
                 getInfo();
            });
@@ -31,6 +37,9 @@ angular.module('myCRUD.view1', ['ngRoute'])
             getInfo();
         });
     }
-
-
+    $scope.updateEst =  function(cedula){
+        $http.put('http://localhost:3800/api/infoestudiantes/'+cedula,$scope.estudiante).then(function( d ){
+            getInfo();
+        });
+    }
 }]);

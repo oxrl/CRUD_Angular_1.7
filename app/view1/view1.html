@@ -25,8 +25,8 @@
                             <label for="txtanolectivo">Año Lectivo</label>
                             <input type="text" id="txtanolectivo" class="form-control" placeholder="Año Lectivo" ng-model="estudiante.anolectivo" />
                         </div>
-                        <input type="button" value="Agregar" id="btnAdd" class="btn btn-primary" ng-click="insertar()"/>
-
+                        <input type="button" value="Agregar" id="btnAdd" class="btn btn-primary" ng-click="insertarEst()" ng-show="guardar"/>
+                        <input type="button" value="Actualizar" id="btnEdit" class="btn btn-success" ng-click="updateEst(estudiante.cedula)" ng-show="update" />
                     </form>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                                     <td>{{ c.paralelo }}</td>
                                     <td>{{ c.anolectivo }}</td>
                                     <td>
-                                        <a class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a ng-click="editEstudiante(c)" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                                         <a ng-click="eliminar(c.cedula)" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
